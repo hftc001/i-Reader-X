@@ -1,0 +1,12 @@
+D:\i-Reader X\i-Reader X\bin\Debug\i-Reader X.exe.config
+D:\i-Reader X\i-Reader X\bin\Debug\i-Reader X.exe
+D:\i-Reader X\i-Reader X\bin\Debug\i-Reader X.pdb
+D:\i-Reader X\i-Reader X\obj\Debug\i-Reader X.csprojResolveAssemblyReference.cache
+D:\i-Reader X\i-Reader X\obj\Debug\i_Reader_X.FormMain.resources
+D:\i-Reader X\i-Reader X\obj\Debug\i_Reader_X.Properties.Resources.resources
+D:\i-Reader X\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
+D:\i-Reader X\i-Reader X\obj\Debug\i-Reader X.exe
+D:\i-Reader X\i-Reader X\obj\Debug\i-Reader X.pdb
+D:\i-Reader X\i-Reader X\obj\Debug\i_Reader_X.FormMessage.resources
+D:\i-Reader X\i-Reader X\obj\Debug\i_Reader_X.Resource.resources
+D:\i-Reader X\i-Reader X\obj\Debug\i_Reader_X.FormKeyboard.resources
