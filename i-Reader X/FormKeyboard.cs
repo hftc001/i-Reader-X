@@ -54,20 +54,71 @@ namespace i_Reader_X
                 textBoxWrite.Text = "Delete";
                 this.Close();
             }
+            else if (btn == buttonDateConfirm)
+            {
+                this.Close();
+            }
         }
 
         private void FormKeyboard_Load(object sender, EventArgs e)
         {
+            panelDate.Visible = false;
             if (FormMain.Rewrite[2] == "计算结果")
             {
                 buttonDeleteSample.Visible = true;
+            }
+            else if (FormMain.Rewrite[2] == "开始日期" | FormMain.Rewrite[2] == "结束日期")
+            {
+                label1.Text = FormMain.Rewrite[2];
+                Size = panelDate.Size;
+                panelDate.Visible = true;
+                textBoxTime.Text = FormMain.Rewrite[1];
             }
         }
 
         private void FormKeyboard_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormMain.Rewrite[0] = textBoxWrite.Text;
+            if (FormMain.Rewrite[2] == "开始日期" | FormMain.Rewrite[2] == "结束日期")
+            {
+                FormMain.Rewrite[0] = textBoxTime.Text;
+            }
+            else
+            {
+                FormMain.Rewrite[0] = textBoxWrite.Text;
+            }
             FormMain.Rewrite[2] = "";
+        }
+
+        private void buttonTimeChange_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            DateTime dt = DateTime.Parse(textBoxTime.Text);
+            switch (btn.Name)
+            {
+                case "button_Year_Down":
+                    textBoxTime.Text = dt.AddYears(-1).ToString("yyyy/MM/dd");
+                    break;
+
+                case "button_Month_Down":
+                    textBoxTime.Text = dt.AddMonths(-1).ToString("yyyy/MM/dd");
+                    break;
+
+                case "button_Day_Down":
+                    textBoxTime.Text = dt.AddDays(-1).ToString("yyyy/MM/dd");
+                    break;
+
+                case "button_Year_Up":
+                    textBoxTime.Text = dt.AddYears(+1).ToString("yyyy/MM/dd");
+                    break;
+
+                case "button_Month_Up":
+                    textBoxTime.Text = dt.AddMonths(+1).ToString("yyyy/MM/dd");
+                    break;
+
+                case "button_Day_Up":
+                    textBoxTime.Text = dt.AddDays(+1).ToString("yyyy/MM/dd");
+                    break;
+            }
         }
     }
 }

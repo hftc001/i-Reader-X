@@ -27,15 +27,28 @@ namespace i_Reader_X
                 ExecuteDataset(new SqlConnection(ConStr), CommandType.Text, strsql.ToString()).Tables[0
                     ];
         }
-        public static DataTable SelectResult(int page, int ResultNum)
-            //查询结果
+        public static DataTable SelectResultCount(string searchconditon)
+        {
+            var strsql = new StringBuilder();
+            strsql.Append(
+                "select count(*) from ResultList where");
+            strsql.Append(searchconditon);
+            return
+                ExecuteDataset(new SqlConnection(ConStr), CommandType.Text, strsql.ToString()).Tables[0
+                    ];
+        }
+
+        public static DataTable SelectResult(int page, int ResultNum, string searchcondition)
+        //查询结果
         {
             var strsql = new StringBuilder();
             strsql.Append("select a.SampleNo, c.TestitemName, CONVERT(varchar(20),coNVERT(decimal(18,2),Result) )+ a.unit as result, a.CreateTime from resultlist a, TestItemInfo c,(select top ");
             strsql.Append(ResultNum);
             strsql.Append(" a.CreateTime from ResultList a,(select top ");
             strsql.Append(ResultNum * page);
-            strsql.Append(" createtime from ResultList order by CreateTime asc) b where a.CreateTime = b. CreateTime order by CreateTime desc) b where a.CreateTime = b.CreateTime and c.TestItemID = a.TestItemID order by a.CreateTime asc");
+            strsql.Append(" createtime from ResultList where");
+            strsql.Append(searchcondition);
+            strsql.Append("order by CreateTime asc) b where a.CreateTime = b.CreateTime order by CreateTime desc) b where a.CreateTime = b.CreateTime and c.TestItemID = a.TestItemID order by a.CreateTime asc");
             return
                 ExecuteDataset(new SqlConnection(ConStr), CommandType.Text, strsql.ToString()).Tables[0
                     ];
@@ -145,11 +158,24 @@ namespace i_Reader_X
             strsql.Append(testitemid);
             ExecuteNonQuery(new SqlConnection(ConStr), CommandType.Text, strsql.ToString());
         }
+
+        public static DataTable SelectLotNo (int ProductID)
+        {
+            var strsql = new StringBuilder();
+            strsql.Append(
+                "select LotNo from CalibData where productID = ");
+            strsql.Append(ProductID);
+            return
+                ExecuteDataset(new SqlConnection(ConStr), CommandType.Text, strsql.ToString()).Tables[0
+                    ];
+        }
+
         //数据库使用必须函数
         public static DataSet ExecuteDataset(SqlConnection connection, CommandType commandType, string commandText)
         {
             return ExecuteDataset(connection, commandType, commandText, null);
         }
+
         private static DataSet ExecuteDataset(SqlConnection connection, CommandType commandType, string commandText, params SqlParameter[] commandParameters)
         {
             if (connection == null) throw new ArgumentNullException(nameof(connection));

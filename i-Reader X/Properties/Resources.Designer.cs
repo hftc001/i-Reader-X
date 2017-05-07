@@ -61,6 +61,24 @@ namespace i_Reader_X.Properties {
         }
         
         /// <summary>
+        ///   查找类似 自动打印关 的本地化字符串。
+        /// </summary>
+        internal static string AutoPrintClose {
+            get {
+                return ResourceManager.GetString("AutoPrintClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自动打印开 的本地化字符串。
+        /// </summary>
+        internal static string AutoPrintOpen {
+            get {
+                return ResourceManager.GetString("AutoPrintOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap Background {
@@ -341,6 +359,15 @@ namespace i_Reader_X.Properties {
         }
         
         /// <summary>
+        ///   查找类似 定标批号： 的本地化字符串。
+        /// </summary>
+        internal static string LotNo {
+            get {
+                return ResourceManager.GetString("LotNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap Message_Normal {
@@ -477,6 +504,15 @@ namespace i_Reader_X.Properties {
             get {
                 object obj = ResourceManager.GetObject("Reagentopen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 样本数量： 的本地化字符串。
+        /// </summary>
+        internal static string SampleSum {
+            get {
+                return ResourceManager.GetString("SampleSum", resourceCulture);
             }
         }
         

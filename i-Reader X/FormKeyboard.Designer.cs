@@ -44,6 +44,17 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonDeleteSample = new System.Windows.Forms.Button();
+            this.panelDate = new System.Windows.Forms.Panel();
+            this.buttonDateConfirm = new System.Windows.Forms.Button();
+            this.button_Day_Down = new System.Windows.Forms.Button();
+            this.button_Day_Up = new System.Windows.Forms.Button();
+            this.button_Month_Down = new System.Windows.Forms.Button();
+            this.button_Month_Up = new System.Windows.Forms.Button();
+            this.button_Year_Down = new System.Windows.Forms.Button();
+            this.button_Year_Up = new System.Windows.Forms.Button();
+            this.textBoxTime = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxWrite
@@ -295,11 +306,161 @@
             this.buttonDeleteSample.Visible = false;
             this.buttonDeleteSample.Click += new System.EventHandler(this.buttonMain_Click);
             // 
+            // panelDate
+            // 
+            this.panelDate.Controls.Add(this.label1);
+            this.panelDate.Controls.Add(this.buttonDateConfirm);
+            this.panelDate.Controls.Add(this.button_Day_Down);
+            this.panelDate.Controls.Add(this.button_Day_Up);
+            this.panelDate.Controls.Add(this.button_Month_Down);
+            this.panelDate.Controls.Add(this.button_Month_Up);
+            this.panelDate.Controls.Add(this.button_Year_Down);
+            this.panelDate.Controls.Add(this.button_Year_Up);
+            this.panelDate.Controls.Add(this.textBoxTime);
+            this.panelDate.Location = new System.Drawing.Point(0, 0);
+            this.panelDate.Name = "panelDate";
+            this.panelDate.Size = new System.Drawing.Size(543, 130);
+            this.panelDate.TabIndex = 21;
+            this.panelDate.Visible = false;
+            // 
+            // buttonDateConfirm
+            // 
+            this.buttonDateConfirm.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black1;
+            this.buttonDateConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDateConfirm.FlatAppearance.BorderSize = 0;
+            this.buttonDateConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateConfirm.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDateConfirm.ForeColor = System.Drawing.Color.White;
+            this.buttonDateConfirm.Location = new System.Drawing.Point(408, 65);
+            this.buttonDateConfirm.Name = "buttonDateConfirm";
+            this.buttonDateConfirm.Size = new System.Drawing.Size(126, 60);
+            this.buttonDateConfirm.TabIndex = 18;
+            this.buttonDateConfirm.Text = "确定";
+            this.buttonDateConfirm.UseVisualStyleBackColor = true;
+            this.buttonDateConfirm.Click += new System.EventHandler(this.buttonMain_Click);
+            // 
+            // button_Day_Down
+            // 
+            this.button_Day_Down.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black;
+            this.button_Day_Down.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Day_Down.FlatAppearance.BorderSize = 0;
+            this.button_Day_Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Day_Down.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Day_Down.ForeColor = System.Drawing.Color.White;
+            this.button_Day_Down.Location = new System.Drawing.Point(342, 65);
+            this.button_Day_Down.Name = "button_Day_Down";
+            this.button_Day_Down.Size = new System.Drawing.Size(60, 60);
+            this.button_Day_Down.TabIndex = 15;
+            this.button_Day_Down.Text = "日-";
+            this.button_Day_Down.UseVisualStyleBackColor = true;
+            this.button_Day_Down.Click += new System.EventHandler(this.buttonTimeChange_Click);
+            // 
+            // button_Day_Up
+            // 
+            this.button_Day_Up.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black;
+            this.button_Day_Up.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Day_Up.FlatAppearance.BorderSize = 0;
+            this.button_Day_Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Day_Up.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Day_Up.ForeColor = System.Drawing.Color.White;
+            this.button_Day_Up.Location = new System.Drawing.Point(276, 65);
+            this.button_Day_Up.Name = "button_Day_Up";
+            this.button_Day_Up.Size = new System.Drawing.Size(60, 60);
+            this.button_Day_Up.TabIndex = 14;
+            this.button_Day_Up.Text = "日+";
+            this.button_Day_Up.UseVisualStyleBackColor = true;
+            this.button_Day_Up.Click += new System.EventHandler(this.buttonTimeChange_Click);
+            // 
+            // button_Month_Down
+            // 
+            this.button_Month_Down.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black;
+            this.button_Month_Down.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Month_Down.FlatAppearance.BorderSize = 0;
+            this.button_Month_Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Month_Down.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Month_Down.ForeColor = System.Drawing.Color.White;
+            this.button_Month_Down.Location = new System.Drawing.Point(210, 65);
+            this.button_Month_Down.Name = "button_Month_Down";
+            this.button_Month_Down.Size = new System.Drawing.Size(60, 60);
+            this.button_Month_Down.TabIndex = 13;
+            this.button_Month_Down.Text = "月-";
+            this.button_Month_Down.UseVisualStyleBackColor = true;
+            this.button_Month_Down.Click += new System.EventHandler(this.buttonTimeChange_Click);
+            // 
+            // button_Month_Up
+            // 
+            this.button_Month_Up.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black;
+            this.button_Month_Up.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Month_Up.FlatAppearance.BorderSize = 0;
+            this.button_Month_Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Month_Up.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Month_Up.ForeColor = System.Drawing.Color.White;
+            this.button_Month_Up.Location = new System.Drawing.Point(144, 65);
+            this.button_Month_Up.Name = "button_Month_Up";
+            this.button_Month_Up.Size = new System.Drawing.Size(60, 60);
+            this.button_Month_Up.TabIndex = 12;
+            this.button_Month_Up.Text = "月+";
+            this.button_Month_Up.UseVisualStyleBackColor = true;
+            this.button_Month_Up.Click += new System.EventHandler(this.buttonTimeChange_Click);
+            // 
+            // button_Year_Down
+            // 
+            this.button_Year_Down.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black;
+            this.button_Year_Down.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Year_Down.FlatAppearance.BorderSize = 0;
+            this.button_Year_Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Year_Down.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Year_Down.ForeColor = System.Drawing.Color.White;
+            this.button_Year_Down.Location = new System.Drawing.Point(78, 65);
+            this.button_Year_Down.Name = "button_Year_Down";
+            this.button_Year_Down.Size = new System.Drawing.Size(60, 60);
+            this.button_Year_Down.TabIndex = 11;
+            this.button_Year_Down.Text = "年-";
+            this.button_Year_Down.UseVisualStyleBackColor = true;
+            this.button_Year_Down.Click += new System.EventHandler(this.buttonTimeChange_Click);
+            // 
+            // button_Year_Up
+            // 
+            this.button_Year_Up.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black;
+            this.button_Year_Up.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Year_Up.FlatAppearance.BorderSize = 0;
+            this.button_Year_Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Year_Up.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Year_Up.ForeColor = System.Drawing.Color.White;
+            this.button_Year_Up.Location = new System.Drawing.Point(12, 65);
+            this.button_Year_Up.Name = "button_Year_Up";
+            this.button_Year_Up.Size = new System.Drawing.Size(60, 60);
+            this.button_Year_Up.TabIndex = 10;
+            this.button_Year_Up.Text = "年+";
+            this.button_Year_Up.UseVisualStyleBackColor = true;
+            this.button_Year_Up.Click += new System.EventHandler(this.buttonTimeChange_Click);
+            // 
+            // textBoxTime
+            // 
+            this.textBoxTime.Font = new System.Drawing.Font("黑体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxTime.Location = new System.Drawing.Point(210, 12);
+            this.textBoxTime.Name = "textBoxTime";
+            this.textBoxTime.Size = new System.Drawing.Size(324, 47);
+            this.textBoxTime.TabIndex = 4;
+            this.textBoxTime.Text = "2017/12/12";
+            this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 46);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "label1";
+            // 
             // FormKeyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 130);
+            this.Controls.Add(this.panelDate);
             this.Controls.Add(this.buttonDeleteSample);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonDelete);
@@ -323,6 +484,8 @@
             this.Text = "FormKeyboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormKeyboard_FormClosed);
             this.Load += new System.EventHandler(this.FormKeyboard_Load);
+            this.panelDate.ResumeLayout(false);
+            this.panelDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +509,15 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonDeleteSample;
+        private System.Windows.Forms.Panel panelDate;
+        private System.Windows.Forms.Button buttonDateConfirm;
+        private System.Windows.Forms.Button button_Day_Down;
+        private System.Windows.Forms.Button button_Day_Up;
+        private System.Windows.Forms.Button button_Month_Down;
+        private System.Windows.Forms.Button button_Month_Up;
+        private System.Windows.Forms.Button button_Year_Down;
+        private System.Windows.Forms.Button button_Year_Up;
+        private System.Windows.Forms.TextBox textBoxTime;
+        private System.Windows.Forms.Label label1;
     }
 }

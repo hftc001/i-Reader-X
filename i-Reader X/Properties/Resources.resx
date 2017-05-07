@@ -280,4 +280,16 @@
   <data name="switch_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\switch_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AutoPrintClose" xml:space="preserve">
+    <value>自动打印关</value>
+  </data>
+  <data name="AutoPrintOpen" xml:space="preserve">
+    <value>自动打印开</value>
+  </data>
+  <data name="SampleSum" xml:space="preserve">
+    <value>样本数量：</value>
+  </data>
+  <data name="LotNo" xml:space="preserve">
+    <value>定标批号：</value>
+  </data>
 </root>

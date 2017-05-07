@@ -14,13 +14,14 @@ using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Configuration;
+using i_Reader_X.Properties;
 
 namespace i_Reader_X
 {
     public partial class FormMain : Form
     {
         //结果显示栏页数：当前页，总页数，每页个数
-        public static int[] page = { 1, 0, 9 };
+        public static int[] page = { 1, 0, 5 };
         //小键盘数据传输：新数据，原来数据，按键由来
         public static string[] Rewrite = { "", "" ,"" };
         //命令数据存储：荧光数据，荧光电机,二维码
@@ -31,13 +32,16 @@ namespace i_Reader_X
         private FormMessage MessageShow;
         //小键盘
         private FormKeyboard Keyboard;
-        //样本类型设定,0为血浆 ，1为血清
-        public string[] TestType = { "0", "血浆" };
+        //样本类型设定,0为全血 ，1为血清
+        public string[] TestType = { "0", "全血" };
         //弹窗信息,弹窗形式,返回信息,打印信息
         public static string[] message = { "", "", "" ,""};
 
         private static string time = "[yyyy-MM-dd HH:mm:ss.fff]";
+        //searchcondition 查询列表条件
+        private string _searchcondition = string.Format(" createtime between '{0:yyyy-MM-dd 00:00:00}' and '{1:yyyy-MM-dd 23:59:59}' ", DateTime.Today.AddDays(-7), DateTime.Now);
 
+        private string searchcondition = "";
         public FormMain()
         {
             InitializeComponent();
@@ -45,6 +49,7 @@ namespace i_Reader_X
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            tabControlMain.SelectedTab = tabPageLoad;
             timerLoad.Start();
         }
 
@@ -61,6 +66,8 @@ namespace i_Reader_X
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+
         private string ConfigRead(string str)
             //读取配置文件
         {
@@ -123,6 +130,11 @@ namespace i_Reader_X
                 textBoxData.AppendText(SorR + DateTime.Now.ToString(time) + str);
                 textBoxData.AppendText("\r\n");
             }
+            if (project == "Result")
+            {
+                textBoxResult.AppendText(SorR + DateTime.Now.ToString(time) + str);
+                textBoxResult.AppendText("\r\n");
+            }
         }
 
         private void timersystem_Tick(object sender, EventArgs e)
@@ -136,16 +148,28 @@ namespace i_Reader_X
                 if (dataGridViewMain.Rows[i].Cells[3].Value.ToString() == "1")
                 {
                     var str = dataGridViewMain.Rows[i].Cells[2].Value.ToString();
-                    str = str.Substring(str.IndexOf("：", StringComparison.Ordinal) + 1);
+                    str = str.Substring(str.IndexOf("：", StringComparison.Ordinal));
                     if (int.Parse(str) >= 1)
                     {
                         dataGridViewMain.Rows[i].Cells[2].Value = "测试中：" + (int.Parse(str) - 1);
+                        if (int.Parse(str) == 5)
+                        {
+                            serialPort_DataSend(serialPortFluoMotor, "010622");
+                            LogAdd("Data", "[s]", "荧光电机串口打开");
+                        }
                     }
                     else
                     {
                         dataGridViewMain.Rows[i].Cells[3].Value = "2";
-                        dataGridViewMain.Rows[i].Cells[2].Value = CalResult().ToString("f2") + "mg/L";
-                        if(ConfigRead("AutoPrint") == "1")
+                        dataGridViewMain.Rows[i].Cells[2].Value = CalResult().ToString("f2") + "pg/mL";
+
+                        var SampleNo = dataGridViewMain.Rows[0].Cells[0].Value.ToString();
+                        var TestItemID = "1";
+                        //var TestItem = dataGridViewMain.Rows[0].Cells[1].Value.ToString();
+                        var Result = dataGridViewMain.Rows[0].Cells[2].Value.ToString().Replace("pg/mL", "");
+                        SqlData.InsertNewResult(SampleNo, DateTime.Now.ToString(), TestItemID, Result, "pg/mL", "", "", "1|0", "1", "", "");
+
+                        if (ConfigRead("AutoPrint") == "1")
                             PagePrint();
                     }
                 }
@@ -163,19 +187,30 @@ namespace i_Reader_X
             {
                 if (dataGridViewMain.Rows.Count != 0)
                 {
-                    var SampleNo = dataGridViewMain.Rows[0].Cells[0].Value.ToString();
-                    var TestItemID = "1";
-                    //var TestItem = dataGridViewMain.Rows[0].Cells[1].Value.ToString();
-                    var Result = dataGridViewMain.Rows[0].Cells[2].Value.ToString().Replace("mg/L", "");
-                    SqlData.InsertNewResult(SampleNo, DateTime.Now.ToString(), TestItemID, Result, "mg/L", "", "", "1|0", "1", "", "");
+                    if (dataGridViewMain.Rows[0].Cells[2].Value.ToString().Substring(0, 1) == "测")
+                    {
+                        MessageBox_Show("测试尚未结束，请等待", false);
+                        return;
+                    }
                 }
                 var result = CalResult();
                 dataGridViewMain.Rows.Clear();
-                dataGridViewMain.Rows.Add(textBoxNum.Text, textBoxItem.Text, "测试中：0", "1", DateTime.Now.ToString());
+                dataGridViewMain.Rows.Add(textBoxNum.Text, textBoxItem.Text, "测试中：900", "1", DateTime.Now.ToString());
                 labeltestnum.Text = "样 本 号：" + textBoxNum.Text;
                 labeltestItem.Text = "测试项目：" + textBoxItem.Text;
                 labelTesttype.Text = "样本类型：" + TestType[1];
                 textBoxNum.Text = (long.Parse(textBoxNum.Text) + 1).ToString().PadLeft(textBoxNum.Text.Length, '0');
+
+            }
+            else if (btn == button_BNP)
+            {
+                UpdataLotNum(1);
+            }
+            else if (btn == buttonItemConfirm)
+            {
+                tabControlMain.SelectedTab = tabPageMain;
+                labelLotNo.Text = labelLotNoChoose.Text;
+                UpdateAppConfig("LotNo", labelLotNoChoose.Text.Substring(5));
             }
             else if (btn == buttonReaderQR)
             {
@@ -198,7 +233,7 @@ namespace i_Reader_X
                 else
                 {
                     TestType[0] = "0";
-                    TestType[1] = "血浆";
+                    TestType[1] = "全血";
                     buttonChange.BackgroundImage = Resource.switch_left;
                     labelbloodX.ForeColor = Color.DarkGray;
                     labelblood.ForeColor = Color.Black;
@@ -207,15 +242,22 @@ namespace i_Reader_X
             else if (btn == buttonPrint)
             {
                 message[3] = "";
-                PrintReadResult();
-                PagePrint();
+                try
+                {
+                    PrintReadResult();
+                    PagePrint();
+                }
+                catch
+                {
+                    MessageBox_Show("没有结果，无法打印", false);
+                }
             }
             else if (btn == buttonPageDown)
             {
                 if (page[0] != page[1])
                 {
                     page[0] = page[0] + 1;
-                    UpdataSearchResult(page[0], page[2]);
+                    UpdataSearchResult(page[0], page[2], searchcondition);
                     labelPages.Text = page[0] + "/" + page[1];
                 }
             }
@@ -224,7 +266,7 @@ namespace i_Reader_X
                 if (page[0] != 1)
                 {
                     page[0] = page[0] - 1;
-                    UpdataSearchResult(page[0], page[2]);
+                    UpdataSearchResult(page[0], page[2], searchcondition);
                     labelPages.Text = page[0] + "/" + page[1];
                 }
             }
@@ -233,23 +275,54 @@ namespace i_Reader_X
                 if (ConfigRead("AutoPrint") == "0")
                 {
                     buttonAutoPrintSwitch.BackgroundImage = Resource.switch_right;
-                    labelAutoPrint.Text = "自动打印开";
+                    labelAutoPrint.Text = Resources.AutoPrintOpen;
                     UpdateAppConfig("AutoPrint", "1");
                 }
                 else if (ConfigRead("AutoPrint") == "1")
                 {
                     buttonAutoPrintSwitch.BackgroundImage = Resource.switch_left;
-                    labelAutoPrint.Text = "自动打印关";
+                    labelAutoPrint.Text = Resources.AutoPrintClose;
                     UpdateAppConfig("AutoPrint", "0");
                 }
             }
-            else if (btn == buttonRewrite)
+            else if (btn == buttonChangeItems)
             {
-                this.Close();
+                tabControlMain.SelectedTab = tabPageItem;
             }
             else if (btn == buttonMin)
             {
                 this.WindowState = FormWindowState.Minimized;
+            }
+            else if (btn == buttonPrintResult)
+            {
+                PagePrint();
+            }
+            else if (btn == buttonChangeResultNo)
+            {
+                textBox_Click(textBoxResultNum, null);
+            }
+            else if (btn == buttonDateTime)
+            {
+                Rewrite[2] = "开始日期";
+                textBox_Click(textBoxStartTime, null);
+                Rewrite[2] = "结束日期";
+                textBox_Click(textBoxEndTime, null);
+            }
+            else if (btn == buttonSearch)
+            {
+                if (textBoxResultNum.Text == "")
+                {
+                    page[0] = 1;
+                    searchcondition = _searchcondition;
+                    UpdataSearchResult(page[0], page[2], searchcondition);
+                    var resultCount = int.Parse(SqlData.SelectResultCount(searchcondition).Rows[0][0].ToString());
+                    page[1] = resultCount / page[2] + (resultCount % page[2] == 0 ? 0 : 1);
+                    labelPages.Text = page[0] + "/" + page[1];
+                }
+                else
+                {
+
+                }
             }
         }
 
@@ -272,9 +345,17 @@ namespace i_Reader_X
                 case "buttonData":
                     tabControlMain.SelectedTab = tabPageResult;
                     page[0] = 1;
-                    page[1] = SqlData.SelectAllResult().Rows.Count / page[2] + 1;
-                    UpdataSearchResult(page[0], page[2]);
+                    searchcondition = _searchcondition;
+                    UpdataSearchResult(page[0], page[2],searchcondition);
+                    var resultCount = int.Parse(SqlData.SelectResultCount(searchcondition).Rows[0][0].ToString());
+                    page[1] = resultCount / page[2] + (resultCount % page[2] == 0 ? 0 : 1);
                     labelPages.Text = page[0] + "/" + page[1];
+                    //页数显示
+                    buttonPrintResult.Visible = false;
+                    //打印按键不可见
+                    textBoxStartTime.Text = DateTime.Today.AddDays(-7).ToString("yyyy/MM/dd");
+                    textBoxEndTime.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                    //选择日期
                     break;
                 case "buttonMain":
                     tabControlMain.SelectedTab = tabPageMain;
@@ -291,18 +372,21 @@ namespace i_Reader_X
 
         private void PrintReadResult()
         {
-
             message[3] += dataGridViewMain.Rows[0].Cells[4].Value.ToString() + "|";
             message[3] += "样本号  ：" + dataGridViewMain.Rows[0].Cells[0].Value.ToString() + "|";
             message[3] += "测试项目：" + dataGridViewMain.Rows[0].Cells[1].Value.ToString() + "|";
             message[3] += "测试结果：" + dataGridViewMain.Rows[0].Cells[2].Value.ToString() + "|";
         }
+        
         private void PagePrint()
             //打印机输出
         {
+            this.TopMost = true;
             var printDocument = new PrintDocument();
             printDocument.PrintPage += printDocument_PrintPage;
             printDocument.Print();
+            message[3] = "";
+            this.TopMost = false;
         }
 
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -339,7 +423,7 @@ namespace i_Reader_X
                 frontstr = ":";
                 backstr = Environment.NewLine;
             }
-            else if (sr == serialPortMotor)
+            else if (sr == serialPortFluoMotor)
             {
                 backstr = Environment.NewLine;
             }
@@ -352,7 +436,7 @@ namespace i_Reader_X
             }
             catch (Exception ee)
             {
-                LogAdd("Data", "[E]", ee.ToString());
+                LogAdd("Data", "[E]", "0004" + ee.ToString());
             }
         }
 
@@ -395,9 +479,30 @@ namespace i_Reader_X
             }
             catch (Exception ee)
             {
-                LogAdd("Data", "[E]", ee.ToString());
+                LogAdd("Data", "[E]", "0003" + ee.ToString());
             }
         }
+        private void serialPortFluoMotor_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                var currentline = new StringBuilder();
+                while (serialPortFluoMotor.BytesToRead > 0)
+                {
+                    var ch = (char)serialPortFluoMotor.ReadByte();
+                    currentline.Append(ch);
+                }
+                if (currentline.Length == 0) return;
+                commandStr[1] += currentline.ToString();
+                //对荧光点击数据进行整理
+                serialPort_DataMakeUp(serialPortFluoMotor);
+            }
+            catch (Exception ee)
+            {
+                //Log_Add("3158" + ee.ToString(), false);
+            }
+        }
+
         private void serialPortFluo_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -423,7 +528,7 @@ namespace i_Reader_X
             }
             catch (Exception ee)
             {
-                LogAdd("Data", "[E]", ee.ToString());
+                LogAdd("Data", "[E]", "0002" + ee.ToString());
             }
         }
 
@@ -472,16 +577,14 @@ namespace i_Reader_X
                     sw.Close();
 
                     //提取完毕对数据进行运算，得到荧光OD详细数据
-                    //var odData = CalMethods.CalFluo(_fluoData);
+                    var odData = CalMethod.CalFluo(_fluoData);
                     //清空荧光数据
                     _fluoData.Clear();
                     //初始化荧光字符串
-                    /*commandStr[0] = "-1";
+                    commandStr[0] = "-1";
                     if (odData.IndexOf("Error", StringComparison.Ordinal) > -1)
                     {
-                        Invoke(new Action(() => Log_Add(odData, true)));
 
-                        DrawResult("-10", _otherStr[0], odData, "", "");
                         return;
                     }
                     //提取cx cy tx ty sumtbase sumcbase用于计算
@@ -499,10 +602,14 @@ namespace i_Reader_X
                     ty = ty.Substring(0, ty.IndexOf(")", StringComparison.Ordinal));
                     sumCBase = sumCBase.Substring(0, sumCBase.IndexOf(")", StringComparison.Ordinal));
                     sumTBase = sumTBase.Substring(0, sumTBase.IndexOf(")", StringComparison.Ordinal));
+
+                    var Tap = double.Parse(sumTBase) / (double.Parse(sumTBase) + double.Parse(sumCBase)) * 5000.0;
+                    LogAdd("Result", "[Result]", Tap.ToString());
+                    /*
                     Invoke(new Action(() =>
                     {
                         // ReSharper disable once LocalizableElement
-                        Log_Add(string.Format(@"{0}^{1}", odData, _otherStr[0]), false);
+                        LogAdd(string.Format(@"{0}^{1}", odData, _otherStr[0]), false);
                         labelResult.Text = string.Format(@"C({0},{1}),T({2},{3});TX-CX={4}", cx, cy, tx, ty, int.Parse(tx) - int.Parse(cx));
                         if (buttonFluoFix.BackColor == Color.LightGray)
                         {
@@ -520,13 +627,13 @@ namespace i_Reader_X
                                 buttonFluoFix.BackColor = Color.Transparent;
                             }
                         }
-                    }));
+                    }));*/
                     //进行结果计算与存储
-                    DrawFluoResult(cy, sumCBase, sumTBase, _otherStr[0], odData, path, path2);
-                    */
+                    //DrawFluoResult(cy, sumCBase, sumTBase, _otherStr[0], odData, path, path2);
+                    
                 }
             }
-            else if (sr == serialPortMotor)
+            else if (sr == serialPortFluoMotor)
             {
                 try
                 {
@@ -566,9 +673,14 @@ namespace i_Reader_X
                 }
                 catch (Exception ee)
                 {
-                    LogAdd("Data", "[E]", ee.ToString());
+                    LogAdd("Data", "[E]", "0001"+ ee.ToString());
                 }
             }
+        }
+
+        private void DrawResult()
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -583,8 +695,9 @@ namespace i_Reader_X
             Rewrite[1] = txb.Text;
             var str = UseKeyBoard();
             txb.Text = str;
-            label1.Focus();
+            panelMenu.Focus();
         }
+        
 
         private string UseKeyBoard()
             //打开小键盘
@@ -606,15 +719,14 @@ namespace i_Reader_X
             MessageShow.StartPosition = FormStartPosition.CenterScreen;
             MessageShow.ShowDialog();
             message[0] = "";
-            
             return message[2];
         }
 
-        private void UpdataSearchResult(int page, int resultnum)
-            //显示结果
+        private void UpdataSearchResult(int pages, int resultnum, string condition)
+        //显示结果
         {
             DataTable tb = new DataTable();
-            tb = SqlData.SelectResult(page, resultnum);
+            tb = SqlData.SelectResult(pages, resultnum, condition);
             dataGridViewResult.DataSource = tb;
             dataGridViewResult.Columns[0].Width = 200;
             dataGridViewResult.Columns[0].HeaderCell.Value = "样本号";
@@ -624,6 +736,17 @@ namespace i_Reader_X
             dataGridViewResult.Columns[2].HeaderCell.Value = "测试结果";
             dataGridViewResult.Columns[3].Visible = false;
         }
+
+        private void UpdataLotNum(int ProductID)
+        //显示结果
+        {
+            DataTable tb = new DataTable();
+            tb = SqlData.SelectLotNo(ProductID);
+            dataGridViewProductID.DataSource = tb;
+            dataGridViewProductID.Columns[0].Width = 200;
+            dataGridViewProductID.Columns[0].HeaderCell.Value = "定标批号";
+        }
+
 
         private void serialPortQR_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -745,12 +868,28 @@ namespace i_Reader_X
                             dataGridViewMain.Rows[0].Cells[0].Value = Rewrite[0];
                         }
                     }
+                    else if (dgv == dataGridViewResult)
+                    {
+                        buttonPrintResult.Visible = true;
+                        message[3] = "";
+                        message[3] += dataGridViewResult.Rows[e.RowIndex].Cells[3].Value.ToString() + "|";
+                        message[3] += "样本号  ：" + dataGridViewResult.Rows[e.RowIndex].Cells[0].Value.ToString() + "|";
+                        message[3] += "测试项目：" + dataGridViewResult.Rows[e.RowIndex].Cells[1].Value.ToString() + "|";
+                        message[3] += "测试结果：" + dataGridViewResult.Rows[e.RowIndex].Cells[2].Value.ToString() + "|";
+                    }
+                    else if (dgv == dataGridViewProductID)
+                    {
+                        buttonItemConfirm.Visible = true;
+                        buttonLotNoDelect.Visible = true;
+                        labelLotNoChoose.Text = Resources.LotNo + dataGridViewProductID.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    }
                 }
                 catch
                 {
 
                 }
             }
+
         }
 
         private void timerLoad_Tick(object sender, EventArgs e)
@@ -776,9 +915,9 @@ namespace i_Reader_X
                 //荧光电机端口
                 try
                 {
-                    serialPortMotor.PortName = ConfigRead("FluoMotorPort");
-                    serialPortMotor.Open();
-                    serialPort_DataSend(serialPortMotor, "010611");
+                    serialPortFluoMotor.PortName = ConfigRead("FluoMotorPort");
+                    serialPortFluoMotor.Open();
+                    serialPort_DataSend(serialPortFluoMotor, "010611");
                     LogAdd("Data", "[s]", "荧光电机串口打开");
                 }
                 catch (Exception ee)
@@ -792,12 +931,17 @@ namespace i_Reader_X
             if (AutoPrint == "1")
             {
                 buttonAutoPrintSwitch.BackgroundImage = Resource.switch_left;
-                labelAutoPrint.Text = "自动打印开";
+                labelAutoPrint.Text = Resources.AutoPrintOpen;
             }
 
+            labelLotNo.Text = Resources.LotNo + ConfigRead("LotNo");
             buttonMain.Visible = true;
             buttonSetting.Visible = true;
             buttonData.Visible = true;
+
+            tabControlMain.SelectedTab = tabPageMain;
         }
+        
+        
     }
 }
