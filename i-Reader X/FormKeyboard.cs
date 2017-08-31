@@ -89,7 +89,7 @@ namespace i_Reader_X
             FormMain.Rewrite[2] = "";
         }
 
-        private void buttonTimeChange_Click(object sender, EventArgs e)
+        private void buttonTimeChange_Click(object sender, EventArgs e)//
         {
             Button btn = (Button)sender;
             DateTime dt = DateTime.Parse(textBoxTime.Text);
@@ -119,6 +119,16 @@ namespace i_Reader_X
                     textBoxTime.Text = dt.AddDays(+1).ToString("yyyy/MM/dd");
                     break;
             }
+        }
+
+        private void textBoxTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelDate_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -39,6 +39,7 @@
             this.labelTimeDay = new System.Windows.Forms.Label();
             this.timersystem = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_QRM = new System.Windows.Forms.Button();
             this.buttonChangeItems = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelbloodX = new System.Windows.Forms.Label();
@@ -62,8 +63,10 @@
             this.buttonPrint = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
+            this.labelReactionTime = new System.Windows.Forms.Label();
             this.labelLotNo = new System.Windows.Forms.Label();
             this.panelReadQR = new System.Windows.Forms.Panel();
+            this.labelQRM = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonQRCancel = new System.Windows.Forms.Button();
             this.buttonTest = new System.Windows.Forms.Button();
@@ -86,24 +89,46 @@
             this.buttonPageUp = new System.Windows.Forms.Button();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.tabPageSetting = new System.Windows.Forms.TabPage();
+            this.label_min = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.groupBoxSetting = new System.Windows.Forms.GroupBox();
+            this.textBoxSleepTime = new System.Windows.Forms.TextBox();
+            this.label_sleep = new System.Windows.Forms.Label();
             this.labelAutoPrint = new System.Windows.Forms.Label();
             this.buttonAutoPrintSwitch = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.tabPageData = new System.Windows.Forms.TabPage();
+            this.label_temperature = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.buttonFluoFix = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.chartFluo = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBoxData = new System.Windows.Forms.TextBox();
             this.tabPageLoad = new System.Windows.Forms.TabPage();
             this.labelLoad = new System.Windows.Forms.Label();
             this.tabPageItem = new System.Windows.Forms.TabPage();
+            this.labelLotNoChoose = new System.Windows.Forms.Label();
             this.buttonLotNoDelect = new System.Windows.Forms.Button();
             this.buttonItemConfirm = new System.Windows.Forms.Button();
             this.button_BNP = new System.Windows.Forms.Button();
             this.dataGridViewProductID = new System.Windows.Forms.DataGridView();
+            this.tabPageSecret = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPageSleep = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelSleep = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel_power2 = new System.Windows.Forms.Panel();
+            this.label_power = new System.Windows.Forms.Label();
             this.buttonEngineer = new System.Windows.Forms.Button();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.buttonMain = new System.Windows.Forms.Button();
@@ -112,7 +137,12 @@
             this.serialPortFluoMotor = new System.IO.Ports.SerialPort(this.components);
             this.serialPortQR = new System.IO.Ports.SerialPort(this.components);
             this.timerLoad = new System.Windows.Forms.Timer(this.components);
-            this.labelLotNoChoose = new System.Windows.Forms.Label();
+            this.serialPortPrint = new System.IO.Ports.SerialPort(this.components);
+            this.timerSleep = new System.Windows.Forms.Timer(this.components);
+            this.timerCursor = new System.Windows.Forms.Timer(this.components);
+            this.timerWaiting = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.serialPortQRM = new System.IO.Ports.SerialPort(this.components);
             this.paneltime.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -131,7 +161,10 @@
             this.tabPageLoad.SuspendLayout();
             this.tabPageItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductID)).BeginInit();
+            this.tabPageSecret.SuspendLayout();
+            this.tabPageSleep.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.panel_power2.SuspendLayout();
             this.SuspendLayout();
             // 
             // paneltime
@@ -176,6 +209,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.button_QRM);
             this.groupBox1.Controls.Add(this.buttonChangeItems);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.textBoxItem);
@@ -190,6 +224,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "项目设置";
             // 
+            // button_QRM
+            // 
+            this.button_QRM.BackColor = System.Drawing.Color.Transparent;
+            this.button_QRM.BackgroundImage = global::i_Reader_X.Properties.Resources.button_Black1;
+            this.button_QRM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_QRM.FlatAppearance.BorderSize = 0;
+            this.button_QRM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_QRM.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_QRM.ForeColor = System.Drawing.Color.White;
+            this.button_QRM.Location = new System.Drawing.Point(368, 29);
+            this.button_QRM.Name = "button_QRM";
+            this.button_QRM.Size = new System.Drawing.Size(120, 33);
+            this.button_QRM.TabIndex = 11;
+            this.button_QRM.Text = "扫描样本";
+            this.button_QRM.UseVisualStyleBackColor = false;
+            this.button_QRM.Click += new System.EventHandler(this.button_Click);
+            // 
             // buttonChangeItems
             // 
             this.buttonChangeItems.BackColor = System.Drawing.Color.Transparent;
@@ -199,9 +250,9 @@
             this.buttonChangeItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChangeItems.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonChangeItems.ForeColor = System.Drawing.Color.White;
-            this.buttonChangeItems.Location = new System.Drawing.Point(350, 32);
+            this.buttonChangeItems.Location = new System.Drawing.Point(368, 73);
             this.buttonChangeItems.Name = "buttonChangeItems";
-            this.buttonChangeItems.Size = new System.Drawing.Size(120, 67);
+            this.buttonChangeItems.Size = new System.Drawing.Size(120, 33);
             this.buttonChangeItems.TabIndex = 10;
             this.buttonChangeItems.Text = "修改项目";
             this.buttonChangeItems.UseVisualStyleBackColor = false;
@@ -267,6 +318,7 @@
             this.textBoxItem.Size = new System.Drawing.Size(192, 30);
             this.textBoxItem.TabIndex = 2;
             this.textBoxItem.Text = "BNP";
+            this.textBoxItem.Click += new System.EventHandler(this.textBoxUseless_Click);
             // 
             // textBoxNum
             // 
@@ -338,6 +390,7 @@
             this.Column3,
             this.测试完成,
             this.创建时间});
+            this.dataGridViewMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dataGridViewMain.Location = new System.Drawing.Point(6, 105);
             this.dataGridViewMain.MultiSelect = false;
             this.dataGridViewMain.Name = "dataGridViewMain";
@@ -447,6 +500,9 @@
             this.tabControlMain.Controls.Add(this.tabPageData);
             this.tabControlMain.Controls.Add(this.tabPageLoad);
             this.tabControlMain.Controls.Add(this.tabPageItem);
+            this.tabControlMain.Controls.Add(this.tabPageSecret);
+            this.tabControlMain.Controls.Add(this.tabPageSleep);
+            this.tabControlMain.Controls.Add(this.tabPage2);
             this.tabControlMain.Location = new System.Drawing.Point(-7, 43);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -456,6 +512,7 @@
             // tabPageMain
             // 
             this.tabPageMain.BackColor = System.Drawing.Color.Lavender;
+            this.tabPageMain.Controls.Add(this.labelReactionTime);
             this.tabPageMain.Controls.Add(this.labelLotNo);
             this.tabPageMain.Controls.Add(this.panelReadQR);
             this.tabPageMain.Controls.Add(this.buttonTest);
@@ -470,12 +527,23 @@
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "tabPage1";
             // 
+            // labelReactionTime
+            // 
+            this.labelReactionTime.AutoSize = true;
+            this.labelReactionTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelReactionTime.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelReactionTime.Location = new System.Drawing.Point(357, 334);
+            this.labelReactionTime.Name = "labelReactionTime";
+            this.labelReactionTime.Size = new System.Drawing.Size(114, 19);
+            this.labelReactionTime.TabIndex = 12;
+            this.labelReactionTime.Text = "反应时间：";
+            // 
             // labelLotNo
             // 
             this.labelLotNo.AutoSize = true;
             this.labelLotNo.BackColor = System.Drawing.Color.Transparent;
             this.labelLotNo.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelLotNo.Location = new System.Drawing.Point(34, 334);
+            this.labelLotNo.Location = new System.Drawing.Point(22, 334);
             this.labelLotNo.Name = "labelLotNo";
             this.labelLotNo.Size = new System.Drawing.Size(114, 19);
             this.labelLotNo.TabIndex = 7;
@@ -483,13 +551,24 @@
             // 
             // panelReadQR
             // 
+            this.panelReadQR.Controls.Add(this.labelQRM);
             this.panelReadQR.Controls.Add(this.label3);
             this.panelReadQR.Controls.Add(this.buttonQRCancel);
-            this.panelReadQR.Location = new System.Drawing.Point(503, 131);
+            this.panelReadQR.Location = new System.Drawing.Point(497, 131);
             this.panelReadQR.Name = "panelReadQR";
             this.panelReadQR.Size = new System.Drawing.Size(299, 250);
             this.panelReadQR.TabIndex = 11;
             this.panelReadQR.Visible = false;
+            // 
+            // labelQRM
+            // 
+            this.labelQRM.AutoSize = true;
+            this.labelQRM.BackColor = System.Drawing.Color.Transparent;
+            this.labelQRM.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelQRM.Location = new System.Drawing.Point(64, 105);
+            this.labelQRM.Name = "labelQRM";
+            this.labelQRM.Size = new System.Drawing.Size(0, 21);
+            this.labelQRM.TabIndex = 12;
             // 
             // label3
             // 
@@ -497,9 +576,9 @@
             this.label3.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(15, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 26);
+            this.label3.Size = new System.Drawing.Size(145, 26);
             this.label3.TabIndex = 11;
-            this.label3.Text = "请扫描二维码信息";
+            this.label3.Text = "请扫描样本信息";
             // 
             // buttonQRCancel
             // 
@@ -514,7 +593,7 @@
             this.buttonQRCancel.Name = "buttonQRCancel";
             this.buttonQRCancel.Size = new System.Drawing.Size(164, 67);
             this.buttonQRCancel.TabIndex = 10;
-            this.buttonQRCancel.Text = "取消";
+            this.buttonQRCancel.Text = "确定";
             this.buttonQRCancel.UseVisualStyleBackColor = false;
             this.buttonQRCancel.Click += new System.EventHandler(this.button_Click);
             // 
@@ -663,6 +742,7 @@
             this.textBoxEndTime.ReadOnly = true;
             this.textBoxEndTime.Size = new System.Drawing.Size(144, 31);
             this.textBoxEndTime.TabIndex = 21;
+            this.textBoxEndTime.Click += new System.EventHandler(this.textBoxUseless_Click);
             // 
             // textBoxStartTime
             // 
@@ -672,6 +752,7 @@
             this.textBoxStartTime.ReadOnly = true;
             this.textBoxStartTime.Size = new System.Drawing.Size(144, 31);
             this.textBoxStartTime.TabIndex = 20;
+            this.textBoxStartTime.Click += new System.EventHandler(this.textBoxUseless_Click);
             // 
             // label6
             // 
@@ -701,6 +782,7 @@
             this.textBoxResultNum.ReadOnly = true;
             this.textBoxResultNum.Size = new System.Drawing.Size(263, 31);
             this.textBoxResultNum.TabIndex = 15;
+            this.textBoxResultNum.Click += new System.EventHandler(this.textBoxUseless_Click);
             // 
             // buttonPrintResult
             // 
@@ -728,7 +810,7 @@
             this.labelPages.Name = "labelPages";
             this.labelPages.Size = new System.Drawing.Size(38, 22);
             this.labelPages.TabIndex = 12;
-            this.labelPages.Text = "0/0";
+            this.labelPages.Text = "0/1";
             // 
             // buttonPageDown
             // 
@@ -780,7 +862,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewResult.ColumnHeadersHeight = 50;
-            this.dataGridViewResult.Location = new System.Drawing.Point(10, 10);
+            this.dataGridViewResult.Location = new System.Drawing.Point(16, 6);
             this.dataGridViewResult.MultiSelect = false;
             this.dataGridViewResult.Name = "dataGridViewResult";
             this.dataGridViewResult.ReadOnly = true;
@@ -797,6 +879,7 @@
             // tabPageSetting
             // 
             this.tabPageSetting.BackColor = System.Drawing.Color.Lavender;
+            this.tabPageSetting.Controls.Add(this.label_min);
             this.tabPageSetting.Controls.Add(this.buttonMin);
             this.tabPageSetting.Controls.Add(this.groupBoxSetting);
             this.tabPageSetting.Controls.Add(this.buttonClose);
@@ -805,6 +888,18 @@
             this.tabPageSetting.Size = new System.Drawing.Size(808, 387);
             this.tabPageSetting.TabIndex = 2;
             this.tabPageSetting.Text = "tabPage3";
+            // 
+            // label_min
+            // 
+            this.label_min.AutoSize = true;
+            this.label_min.BackColor = System.Drawing.Color.Transparent;
+            this.label_min.Font = new System.Drawing.Font("黑体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_min.Location = new System.Drawing.Point(288, 180);
+            this.label_min.Name = "label_min";
+            this.label_min.Size = new System.Drawing.Size(61, 29);
+            this.label_min.TabIndex = 8;
+            this.label_min.Text = "min";
+            this.label_min.Click += new System.EventHandler(this.label9_Click);
             // 
             // buttonMin
             // 
@@ -825,6 +920,8 @@
             // 
             // groupBoxSetting
             // 
+            this.groupBoxSetting.Controls.Add(this.textBoxSleepTime);
+            this.groupBoxSetting.Controls.Add(this.label_sleep);
             this.groupBoxSetting.Controls.Add(this.labelAutoPrint);
             this.groupBoxSetting.Controls.Add(this.buttonAutoPrintSwitch);
             this.groupBoxSetting.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -834,6 +931,28 @@
             this.groupBoxSetting.TabIndex = 3;
             this.groupBoxSetting.TabStop = false;
             this.groupBoxSetting.Text = "基础设置";
+            // 
+            // textBoxSleepTime
+            // 
+            this.textBoxSleepTime.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxSleepTime.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxSleepTime.Location = new System.Drawing.Point(161, 148);
+            this.textBoxSleepTime.Name = "textBoxSleepTime";
+            this.textBoxSleepTime.ReadOnly = true;
+            this.textBoxSleepTime.Size = new System.Drawing.Size(91, 30);
+            this.textBoxSleepTime.TabIndex = 20;
+            this.textBoxSleepTime.Click += new System.EventHandler(this.textBox_Click);
+            // 
+            // label_sleep
+            // 
+            this.label_sleep.AutoSize = true;
+            this.label_sleep.BackColor = System.Drawing.Color.Transparent;
+            this.label_sleep.Font = new System.Drawing.Font("黑体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_sleep.Location = new System.Drawing.Point(26, 148);
+            this.label_sleep.Name = "label_sleep";
+            this.label_sleep.Size = new System.Drawing.Size(137, 29);
+            this.label_sleep.TabIndex = 6;
+            this.label_sleep.Text = "休眠时间";
             // 
             // labelAutoPrint
             // 
@@ -882,15 +1001,59 @@
             // tabPageData
             // 
             this.tabPageData.BackColor = System.Drawing.Color.Lavender;
+            this.tabPageData.Controls.Add(this.label_temperature);
+            this.tabPageData.Controls.Add(this.button8);
+            this.tabPageData.Controls.Add(this.buttonFluoFix);
+            this.tabPageData.Controls.Add(this.button7);
             this.tabPageData.Controls.Add(this.textBoxResult);
             this.tabPageData.Controls.Add(this.chartFluo);
-            this.tabPageData.Controls.Add(this.button1);
             this.tabPageData.Controls.Add(this.textBoxData);
             this.tabPageData.Location = new System.Drawing.Point(4, 22);
             this.tabPageData.Name = "tabPageData";
             this.tabPageData.Size = new System.Drawing.Size(808, 387);
             this.tabPageData.TabIndex = 3;
             this.tabPageData.Text = "tabPage1";
+            // 
+            // label_temperature
+            // 
+            this.label_temperature.AutoSize = true;
+            this.label_temperature.Font = new System.Drawing.Font("仿宋", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_temperature.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label_temperature.Location = new System.Drawing.Point(735, 204);
+            this.label_temperature.Name = "label_temperature";
+            this.label_temperature.Size = new System.Drawing.Size(56, 16);
+            this.label_temperature.TabIndex = 8;
+            this.label_temperature.Text = "24.5℃";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(351, 147);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(104, 43);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "清空日志";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // buttonFluoFix
+            // 
+            this.buttonFluoFix.Location = new System.Drawing.Point(351, 88);
+            this.buttonFluoFix.Name = "buttonFluoFix";
+            this.buttonFluoFix.Size = new System.Drawing.Size(104, 43);
+            this.buttonFluoFix.TabIndex = 6;
+            this.buttonFluoFix.Text = "荧光校准";
+            this.buttonFluoFix.UseVisualStyleBackColor = true;
+            this.buttonFluoFix.Click += new System.EventHandler(this.buttonFluoFix_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(351, 30);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(104, 43);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "内部设定";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // textBoxResult
             // 
@@ -902,27 +1065,22 @@
             // 
             // chartFluo
             // 
+            this.chartFluo.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea1.Name = "ChartArea1";
             this.chartFluo.ChartAreas.Add(chartArea1);
-            this.chartFluo.Location = new System.Drawing.Point(331, 207);
+            this.chartFluo.Location = new System.Drawing.Point(325, 207);
             this.chartFluo.Name = "chartFluo";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Name = "Series1";
             this.chartFluo.Series.Add(series1);
-            this.chartFluo.Size = new System.Drawing.Size(460, 169);
+            this.chartFluo.Size = new System.Drawing.Size(487, 180);
             this.chartFluo.TabIndex = 3;
             this.chartFluo.Text = "chart1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(367, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxData
             // 
@@ -965,6 +1123,17 @@
             this.tabPageItem.Size = new System.Drawing.Size(808, 387);
             this.tabPageItem.TabIndex = 5;
             this.tabPageItem.Text = "tabPageItem";
+            // 
+            // labelLotNoChoose
+            // 
+            this.labelLotNoChoose.AutoSize = true;
+            this.labelLotNoChoose.BackColor = System.Drawing.Color.Transparent;
+            this.labelLotNoChoose.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelLotNoChoose.Location = new System.Drawing.Point(238, 39);
+            this.labelLotNoChoose.Name = "labelLotNoChoose";
+            this.labelLotNoChoose.Size = new System.Drawing.Size(114, 19);
+            this.labelLotNoChoose.TabIndex = 14;
+            this.labelLotNoChoose.Text = "定标批号：";
             // 
             // buttonLotNoDelect
             // 
@@ -1048,9 +1217,156 @@
             this.dataGridViewProductID.TabIndex = 1;
             this.dataGridViewProductID.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
+            // tabPageSecret
+            // 
+            this.tabPageSecret.BackColor = System.Drawing.Color.Lavender;
+            this.tabPageSecret.Controls.Add(this.button6);
+            this.tabPageSecret.Controls.Add(this.button5);
+            this.tabPageSecret.Controls.Add(this.button4);
+            this.tabPageSecret.Controls.Add(this.labelTime);
+            this.tabPageSecret.Controls.Add(this.label8);
+            this.tabPageSecret.Controls.Add(this.button3);
+            this.tabPageSecret.Controls.Add(this.button2);
+            this.tabPageSecret.Controls.Add(this.button1);
+            this.tabPageSecret.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSecret.Name = "tabPageSecret";
+            this.tabPageSecret.Size = new System.Drawing.Size(808, 387);
+            this.tabPageSecret.TabIndex = 6;
+            this.tabPageSecret.Text = "tabPage1";
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.Location = new System.Drawing.Point(175, 173);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(108, 62);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "120";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button5.Location = new System.Drawing.Point(35, 173);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(108, 62);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "60";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button4.Location = new System.Drawing.Point(175, 84);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(108, 62);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "30";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTime.Location = new System.Drawing.Point(149, 36);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(20, 19);
+            this.labelTime.TabIndex = 14;
+            this.labelTime.Text = "1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(29, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(114, 19);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "反应时间：";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(175, 267);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(108, 62);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "900";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(35, 267);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 62);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "300";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(35, 84);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 62);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // tabPageSleep
+            // 
+            this.tabPageSleep.Controls.Add(this.panel1);
+            this.tabPageSleep.Controls.Add(this.labelSleep);
+            this.tabPageSleep.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSleep.Name = "tabPageSleep";
+            this.tabPageSleep.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSleep.Size = new System.Drawing.Size(808, 387);
+            this.tabPageSleep.TabIndex = 7;
+            this.tabPageSleep.Text = "tabPage1";
+            this.tabPageSleep.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Location = new System.Drawing.Point(251, 102);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(247, 262);
+            this.panel1.TabIndex = 1;
+            // 
+            // labelSleep
+            // 
+            this.labelSleep.AutoSize = true;
+            this.labelSleep.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSleep.Location = new System.Drawing.Point(267, 36);
+            this.labelSleep.Name = "labelSleep";
+            this.labelSleep.Size = new System.Drawing.Size(126, 42);
+            this.labelSleep.TabIndex = 0;
+            this.labelSleep.Text = "Sleep...";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(808, 387);
+            this.tabPage2.TabIndex = 8;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // panelMenu
             // 
-            this.panelMenu.BackgroundImage = global::i_Reader_X.Properties.Resources.topbg;
+            this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMenu.BackgroundImage")));
+            this.panelMenu.Controls.Add(this.panel_power2);
             this.panelMenu.Controls.Add(this.buttonEngineer);
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.buttonMain);
@@ -1059,6 +1375,27 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(803, 70);
             this.panelMenu.TabIndex = 11;
+            // 
+            // panel_power2
+            // 
+            this.panel_power2.BackColor = System.Drawing.Color.Transparent;
+            this.panel_power2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_power2.BackgroundImage")));
+            this.panel_power2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_power2.Controls.Add(this.label_power);
+            this.panel_power2.Location = new System.Drawing.Point(756, 7);
+            this.panel_power2.Name = "panel_power2";
+            this.panel_power2.Size = new System.Drawing.Size(41, 19);
+            this.panel_power2.TabIndex = 5;
+            // 
+            // label_power
+            // 
+            this.label_power.AutoSize = true;
+            this.label_power.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_power.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label_power.Location = new System.Drawing.Point(1, 1);
+            this.label_power.Name = "label_power";
+            this.label_power.Size = new System.Drawing.Size(0, 17);
+            this.label_power.TabIndex = 6;
             // 
             // buttonEngineer
             // 
@@ -1069,7 +1406,7 @@
             this.buttonEngineer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEngineer.Location = new System.Drawing.Point(0, 0);
             this.buttonEngineer.Name = "buttonEngineer";
-            this.buttonEngineer.Size = new System.Drawing.Size(314, 70);
+            this.buttonEngineer.Size = new System.Drawing.Size(123, 38);
             this.buttonEngineer.TabIndex = 3;
             this.buttonEngineer.UseVisualStyleBackColor = false;
             this.buttonEngineer.Click += new System.EventHandler(this.buttonmenu_Click);
@@ -1080,7 +1417,7 @@
             this.buttonSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSetting.FlatAppearance.BorderSize = 0;
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSetting.Location = new System.Drawing.Point(740, 5);
+            this.buttonSetting.Location = new System.Drawing.Point(682, 3);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Size = new System.Drawing.Size(60, 60);
             this.buttonSetting.TabIndex = 2;
@@ -1094,7 +1431,7 @@
             this.buttonMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonMain.FlatAppearance.BorderSize = 0;
             this.buttonMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMain.Location = new System.Drawing.Point(556, 5);
+            this.buttonMain.Location = new System.Drawing.Point(529, 3);
             this.buttonMain.Name = "buttonMain";
             this.buttonMain.Size = new System.Drawing.Size(60, 60);
             this.buttonMain.TabIndex = 1;
@@ -1108,7 +1445,7 @@
             this.buttonData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonData.FlatAppearance.BorderSize = 0;
             this.buttonData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonData.Location = new System.Drawing.Point(651, 5);
+            this.buttonData.Location = new System.Drawing.Point(607, 3);
             this.buttonData.Name = "buttonData";
             this.buttonData.Size = new System.Drawing.Size(60, 60);
             this.buttonData.TabIndex = 0;
@@ -1119,6 +1456,8 @@
             // serialPortFluo
             // 
             this.serialPortFluo.BaudRate = 57600;
+            this.serialPortFluo.DiscardNull = true;
+            this.serialPortFluo.PortName = "COM8";
             this.serialPortFluo.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPortFluo_DataReceived);
             // 
             // serialPortFluoMotor
@@ -1128,22 +1467,40 @@
             // 
             // serialPortQR
             // 
+            this.serialPortQR.BaudRate = 115200;
+            this.serialPortQR.PortName = "COM4";
             this.serialPortQR.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPortQR_DataReceived);
             // 
             // timerLoad
             // 
             this.timerLoad.Tick += new System.EventHandler(this.timerLoad_Tick);
             // 
-            // labelLotNoChoose
+            // serialPortPrint
             // 
-            this.labelLotNoChoose.AutoSize = true;
-            this.labelLotNoChoose.BackColor = System.Drawing.Color.Transparent;
-            this.labelLotNoChoose.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelLotNoChoose.Location = new System.Drawing.Point(238, 39);
-            this.labelLotNoChoose.Name = "labelLotNoChoose";
-            this.labelLotNoChoose.Size = new System.Drawing.Size(114, 19);
-            this.labelLotNoChoose.TabIndex = 14;
-            this.labelLotNoChoose.Text = "定标批号：";
+            this.serialPortPrint.PortName = "COM3";
+            // 
+            // timerSleep
+            // 
+            this.timerSleep.Enabled = true;
+            this.timerSleep.Interval = 1000;
+            this.timerSleep.Tick += new System.EventHandler(this.timerSleep_Tick);
+            // 
+            // timerCursor
+            // 
+            this.timerCursor.Enabled = true;
+            this.timerCursor.Interval = 1000;
+            this.timerCursor.Tick += new System.EventHandler(this.timerCursor_Tick);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // serialPortQRM
+            // 
+            this.serialPortQRM.BaudRate = 115200;
+            this.serialPortQRM.PortName = "COM2";
+            this.serialPortQRM.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPortQRM_DataReceived);
             // 
             // FormMain
             // 
@@ -1184,6 +1541,7 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).EndInit();
             this.tabPageSetting.ResumeLayout(false);
+            this.tabPageSetting.PerformLayout();
             this.groupBoxSetting.ResumeLayout(false);
             this.groupBoxSetting.PerformLayout();
             this.tabPageData.ResumeLayout(false);
@@ -1194,7 +1552,13 @@
             this.tabPageItem.ResumeLayout(false);
             this.tabPageItem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductID)).EndInit();
+            this.tabPageSecret.ResumeLayout(false);
+            this.tabPageSecret.PerformLayout();
+            this.tabPageSleep.ResumeLayout(false);
+            this.tabPageSleep.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panel_power2.ResumeLayout(false);
+            this.panel_power2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1238,7 +1602,6 @@
         private System.Windows.Forms.TextBox textBoxData;
         private System.IO.Ports.SerialPort serialPortFluo;
         private System.IO.Ports.SerialPort serialPortFluoMotor;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBoxSetting;
         private System.Windows.Forms.Button buttonPageDown;
         private System.Windows.Forms.Button buttonPageUp;
@@ -1280,6 +1643,37 @@
         private System.Windows.Forms.Button buttonLotNoDelect;
         private System.Windows.Forms.Button buttonItemConfirm;
         private System.Windows.Forms.Label labelLotNoChoose;
+        private System.Windows.Forms.TabPage tabPageSecret;
+        private System.Windows.Forms.Label labelReactionTime;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button7;
+        private System.IO.Ports.SerialPort serialPortPrint;
+        private System.Windows.Forms.Timer timerSleep;
+        private System.Windows.Forms.Timer timerCursor;
+        private System.Windows.Forms.TabPage tabPageSleep;
+        private System.Windows.Forms.Label labelSleep;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer timerWaiting;
+        private System.Windows.Forms.Label label_min;
+        private System.Windows.Forms.TextBox textBoxSleepTime;
+        private System.Windows.Forms.Label label_sleep;
+        private System.Windows.Forms.Button buttonFluoFix;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label labelQRM;
+        private System.IO.Ports.SerialPort serialPortQRM;
+        private System.Windows.Forms.Button button_QRM;
+        private System.Windows.Forms.Panel panel_power2;
+        private System.Windows.Forms.Label label_power;
+        private System.Windows.Forms.Label label_temperature;
     }
 }
 

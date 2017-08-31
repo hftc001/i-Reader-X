@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace i_Reader_X
 {
-    class CalMethod
+    internal class CalMethod
     {
         /// <summary>
         /// 荧光计算
@@ -17,6 +17,7 @@ namespace i_Reader_X
         {
             try
             {
+               // Console.WriteLine("进入执行");
                 var dataCount = fluodata.Count;
                 var point = dataCount / 20;
                 var cx = 0;

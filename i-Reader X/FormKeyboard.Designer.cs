@@ -45,6 +45,7 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonDeleteSample = new System.Windows.Forms.Button();
             this.panelDate = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonDateConfirm = new System.Windows.Forms.Button();
             this.button_Day_Down = new System.Windows.Forms.Button();
             this.button_Day_Up = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.button_Year_Down = new System.Windows.Forms.Button();
             this.button_Year_Up = new System.Windows.Forms.Button();
             this.textBoxTime = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelDate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -317,11 +317,22 @@
             this.panelDate.Controls.Add(this.button_Year_Down);
             this.panelDate.Controls.Add(this.button_Year_Up);
             this.panelDate.Controls.Add(this.textBoxTime);
-            this.panelDate.Location = new System.Drawing.Point(0, 0);
+            this.panelDate.Location = new System.Drawing.Point(0, 1);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(543, 130);
             this.panelDate.TabIndex = 21;
             this.panelDate.Visible = false;
+            this.panelDate.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDate_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 46);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "label1";
             // 
             // buttonDateConfirm
             // 
@@ -444,16 +455,7 @@
             this.textBoxTime.TabIndex = 4;
             this.textBoxTime.Text = "2017/12/12";
             this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 46);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "label1";
+            this.textBoxTime.TextChanged += new System.EventHandler(this.textBoxTime_TextChanged);
             // 
             // FormKeyboard
             // 

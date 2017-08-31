@@ -1,0 +1,11 @@
+D:\work\i-Reader-X\i-Reader X\bin\Release\i-Reader X.exe.config
+D:\work\i-Reader-X\i-Reader X\bin\Release\i-Reader X.exe
+D:\work\i-Reader-X\i-Reader X\bin\Release\i-Reader X.pdb
+D:\work\i-Reader-X\i-Reader X\obj\Release\i_Reader_X.FormKeyboard.resources
+D:\work\i-Reader-X\i-Reader X\obj\Release\i_Reader_X.FormMain.resources
+D:\work\i-Reader-X\i-Reader X\obj\Release\i_Reader_X.FormMessage.resources
+D:\work\i-Reader-X\i-Reader X\obj\Release\i_Reader_X.Properties.Resources.resources
+D:\work\i-Reader-X\i-Reader X\obj\Release\i_Reader_X.Resource.resources
+D:\work\i-Reader-X\i-Reader X\obj\Release\i-Reader X.csproj.GenerateResource.Cache
+D:\work\i-Reader-X\i-Reader X\obj\Release\i-Reader X.exe
+D:\work\i-Reader-X\i-Reader X\obj\Release\i-Reader X.pdb

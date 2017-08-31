@@ -21,6 +21,11 @@ namespace i_Reader_X
         private void FormMessage_Load(object sender, EventArgs e)
         {
             labelMessage.Text = FormMain.message[0];
+            if (FormMain.message[0].Substring(0, 2) == "测试")
+            {
+                buttonOK.Text = "是";
+                buttonCancel.Text = "否";
+            }
             var type = FormMain.message[1];
             if (type == "OKorCancel")
             {

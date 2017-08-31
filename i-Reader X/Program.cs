@@ -17,6 +17,7 @@ namespace i_Reader_X
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
+            
         }
     }
 }

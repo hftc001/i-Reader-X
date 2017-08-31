@@ -319,6 +319,60 @@ namespace i_Reader_X.Properties {
         }
         
         /// <summary>
+        ///   查找类似 当前状态： 的本地化字符串。
+        /// </summary>
+        internal static string I0110 {
+            get {
+                return ResourceManager.GetString("I0110", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 片仓湿度：[n]% 片仓温度：[m]℃ 仪器内部温度：[s]℃ 的本地化字符串。
+        /// </summary>
+        internal static string I0111 {
+            get {
+                return ResourceManager.GetString("I0111", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 [0]当前空闲^[1]当前忙^ 的本地化字符串。
+        /// </summary>
+        internal static string I3120 {
+            get {
+                return ResourceManager.GetString("I3120", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 当前休眠时间为[n]秒 的本地化字符串。
+        /// </summary>
+        internal static string I3152 {
+            get {
+                return ResourceManager.GetString("I3152", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 休眠模式关闭 的本地化字符串。
+        /// </summary>
+        internal static string I3152_1 {
+            get {
+                return ResourceManager.GetString("I3152_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 识别到定标二维码, 批号:[m] 的本地化字符串。
+        /// </summary>
+        internal static string labelQRText {
+            get {
+                return ResourceManager.GetString("labelQRText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap Log_Normal {
@@ -364,6 +418,15 @@ namespace i_Reader_X.Properties {
         internal static string LotNo {
             get {
                 return ResourceManager.GetString("LotNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 样本[1]结果为： 的本地化字符串。
+        /// </summary>
+        internal static string M0001 {
+            get {
+                return ResourceManager.GetString("M0001", resourceCulture);
             }
         }
         
@@ -434,6 +497,33 @@ namespace i_Reader_X.Properties {
             get {
                 object obj = ResourceManager.GetObject("QCBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 定标二维码信息不正确 的本地化字符串。
+        /// </summary>
+        internal static string QRError {
+            get {
+                return ResourceManager.GetString("QRError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 定标二维码信息不正确 的本地化字符串。
+        /// </summary>
+        internal static string QRError1 {
+            get {
+                return ResourceManager.GetString("QRError1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 反应时间： 的本地化字符串。
+        /// </summary>
+        internal static string ReactionTime {
+            get {
+                return ResourceManager.GetString("ReactionTime", resourceCulture);
             }
         }
         

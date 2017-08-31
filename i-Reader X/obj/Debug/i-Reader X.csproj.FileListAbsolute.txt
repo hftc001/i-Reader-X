@@ -22,3 +22,69 @@ C:\Users\huangfutianci\Source\Repos\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.R
 C:\Users\huangfutianci\Source\Repos\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
 C:\Users\huangfutianci\Source\Repos\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.exe
 C:\Users\huangfutianci\Source\Repos\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.pdb
+D:\work\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.exe.config
+D:\work\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.exe
+D:\work\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.pdb
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csprojResolveAssemblyReference.cache
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormKeyboard.resources
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormMain.resources
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormMessage.resources
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.Properties.Resources.resources
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.Resource.resources
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.exe
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.pdb
+D:\work\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormAlert.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.exe.config
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.exe
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.pdb
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormAlert.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormKeyboard.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormMain.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormMessage.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.Properties.Resources.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.Resource.resources
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.exe
+C:\Users\Administrator\Desktop\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.pdb
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\bin\Debug\i-Reader X.exe.config
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\bin\Debug\i-Reader X.exe
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\bin\Debug\i-Reader X.pdb
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i-Reader X.csprojResolveAssemblyReference.cache
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i_Reader_X.FormAlert.resources
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i_Reader_X.FormKeyboard.resources
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i_Reader_X.FormMain.resources
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i_Reader_X.FormMessage.resources
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i_Reader_X.Properties.Resources.resources
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i_Reader_X.Resource.resources
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i-Reader X.exe
+D:\work\备份\i-Reader-X.8.15pm\i-Reader X\obj\Debug\i-Reader X.pdb
+D:\work\i-Reader-X.8.16am\i-Reader X\bin\Debug\i-Reader X.exe.config
+D:\work\i-Reader-X.8.16am\i-Reader X\bin\Debug\i-Reader X.exe
+D:\work\i-Reader-X.8.16am\i-Reader X\bin\Debug\i-Reader X.pdb
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i-Reader X.csprojResolveAssemblyReference.cache
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i_Reader_X.FormAlert.resources
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i_Reader_X.FormKeyboard.resources
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i_Reader_X.FormMain.resources
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i_Reader_X.FormMessage.resources
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i_Reader_X.Properties.Resources.resources
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i_Reader_X.Resource.resources
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i-Reader X.exe
+D:\work\i-Reader-X.8.16am\i-Reader X\obj\Debug\i-Reader X.pdb
+E:\i-Reader-X\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.exe.config
+E:\i-Reader-X\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.exe
+E:\i-Reader-X\i-Reader-X\i-Reader X\bin\Debug\i-Reader X.pdb
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csprojResolveAssemblyReference.cache
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormAlert.resources
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormKeyboard.resources
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormMain.resources
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.FormMessage.resources
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.Properties.Resources.resources
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i_Reader_X.Resource.resources
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csproj.GenerateResource.Cache
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.csproj.CoreCompileInputs.cache
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.exe
+E:\i-Reader-X\i-Reader-X\i-Reader X\obj\Debug\i-Reader X.pdb

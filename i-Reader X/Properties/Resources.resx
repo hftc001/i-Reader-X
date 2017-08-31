@@ -292,4 +292,37 @@
   <data name="LotNo" xml:space="preserve">
     <value>定标批号：</value>
   </data>
+  <data name="ReactionTime" xml:space="preserve">
+    <value>反应时间：</value>
+  </data>
+  <data name="I0111" xml:space="preserve">
+    <value>片仓湿度：[n]% 片仓温度：[m]℃ 仪器内部温度：[s]℃</value>
+  </data>
+  <data name="QRError" xml:space="preserve">
+    <value>定标二维码信息不正确</value>
+  </data>
+  <data name="I0110" xml:space="preserve">
+    <value>当前状态：</value>
+    <comment>特殊情形</comment>
+  </data>
+  <data name="I3120" xml:space="preserve">
+    <value>[0]当前空闲^[1]当前忙^</value>
+    <comment>特殊情形</comment>
+  </data>
+  <data name="I3152" xml:space="preserve">
+    <value>当前休眠时间为[n]秒</value>
+  </data>
+  <data name="I3152_1" xml:space="preserve">
+    <value>休眠模式关闭</value>
+    <comment>当休眠时间为0时</comment>
+  </data>
+  <data name="M0001" xml:space="preserve">
+    <value>样本[1]结果为：</value>
+  </data>
+  <data name="labelQRText" xml:space="preserve">
+    <value>识别到定标二维码, 批号:[m]</value>
+  </data>
+  <data name="QRError1" xml:space="preserve">
+    <value>定标二维码信息不正确</value>
+  </data>
 </root>
